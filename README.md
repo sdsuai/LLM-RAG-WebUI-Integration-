@@ -1,4 +1,4 @@
-# LLM-RAB-WebUI-integration
+# LLM-RAG-WebUI-integration
 Conda environment with python version of atleast 3.10. Might need to create multiple conda environments perhaps.
 [ollama](https://ollama.com/) 
 [ollama repo](https://github.com/ollama/ollama)
