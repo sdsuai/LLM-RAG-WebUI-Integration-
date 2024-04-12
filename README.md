@@ -1,4 +1,5 @@
 # LLM-RAB-WebUI-integration
+Conda environment with python version of atleast 3.10. Might need to create multiple conda environments perhaps.
 [ollama](https://ollama.com/) 
 [ollama repo](https://github.com/ollama/ollama)
 Must be able to run program on the terminal of your machine. Talk to the program so you need a Voice Activity Detector (webrtcvad, sileroVA etc.), 
