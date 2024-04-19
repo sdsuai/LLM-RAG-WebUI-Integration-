@@ -6,7 +6,7 @@
 * The "bare-minimum" task can be accomplished with just CPU. If your GPU is good enough just use that though.
 * This task will require you to run yoiur code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. 
 * After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
-* This is the link to the [google folder](https://drive.google.com/drive/folders/1NPePoOOE4NwcWdrEWzLUcbdNbilXJIIx?usp=drive_link) you must submit your work to. Submit a folder containing all fo your code as well as the video. You must name the folder with your name and email address in the format <name>|<email_address>: nika|nikasemail@gmail.com.
+* This is the link to the [google folder](https://drive.google.com/drive/folders/1NPePoOOE4NwcWdrEWzLUcbdNbilXJIIx?usp=drive_link) you must submit your work to. Submit a folder containing all fo your code as well as the video. You must name the folder with your name and email address in the format <name>|<email_address>: nika|nikasemail@yahoo.com.
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
   
 
