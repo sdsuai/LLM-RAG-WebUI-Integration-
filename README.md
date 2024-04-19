@@ -1,7 +1,7 @@
 # LLM-RAG-WebUI-integration
 
 ## Important note
-* You muse code in Python.
+* You must code in Python.
 * Some of the libraries and dependencies to fulfill this problem may require python version of atleast 3.8 to 3.10 I think ( I only tried Python 3.8), I don't think python 3.11 works with some dependencies. This is just my opinion, you can try out different python environments using conda or python venv. Ideally please use conda.
 * The "bare-minimum" task can be accomplished with just CPU. If your GPU is good enough just use that though.
 * This task will require you to run yoiur code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. 
@@ -19,7 +19,7 @@ Our lab works with Large Language Models (LLMs) and other transformer based mode
 
 ## Tools you can use
 The platform I advise to run LLMs from is [ollama](https://ollama.com/), here is their [repo](https://github.com/ollama/ollama). The ollama repo also provides some example scripts that might provide some inspiration on how to go about solving some parts of the problem.
-For those with not so good PCs, again the "bare-minimum" can be done with just CPU, you can pull a small LLM like `gemma:2b` or `tinyllama` locally on your ollama and just use those. For the webUI you may use streamlit and Flask as a server to retreive user queries and LLM responses from. I have provided two scripts which use streamlit and Flask to show a simple example of to get user input to show up on the streamlit webUI. Again, this is just advice, any other way you can get this done, you can just do that. You don't have to use ollama , or streamlit or Flask.
+For those with not so good PCs, again the "bare-minimum" can be done with just CPU, you can pull a small LLM like `gemma:2b` or `tinyllama` (these are around 2GB in size) locally on your ollama and just use those. For the webUI you may use streamlit and Flask as a server to retreive user queries and LLM responses from. I have provided two scripts which use streamlit and Flask to show a simple example of to get user input to show up on the streamlit webUI. Again, this is just advice, any other way you can get this done, you can just do that. You don't have to use ollama , or streamlit or Flask.
 
 ## "bare-minimum"
 * You can provide the LLM with user query by typing it in terminal
@@ -28,14 +28,14 @@ For those with not so good PCs, again the "bare-minimum" can be done with just C
 
 
 ## Extra Credit
-Those who are able to go some extra mile will be picked first for interview. Have your software have these extra capabiltiies. These extra capabilities should not be confused with modes. The software shoudl have this capability from any mode.
+Those who are able to go some extra mile will be picked first for interview. Have your software have these extra capabiltiies. These extra capabilities should not be confused with modes. The software should have this capability from any mode.
 
 * Talk to your computer instead of typing in terminal. Here are some tools you may need:
   * A tool to stream audio. You can use `pyaudio` or some other library.
   * A tool to detect human speech in audio, so a Voice Activity Detector (`webrtcvad`, `sileroVAD` etc.).
   * A tool to derive text from speech, so maybe a  transcriber model (i.e whisper, faster-whisper etc.). Even with a "bare-minimum" PC, some of these transcriber models can run on only CPU.
 * Your machine talks back
-    * You will need some text-to-speech library for the program to talk back as a bonus. The voice of the doesnt have to be great. 
+    * You will need some text-to-speech library or model for the program to talk back as a bonus. The voice doesn't have to be great. 
 * If you have a decent enough PC:
     * Use bigger LLMs like mistral (fine-tuned instruct version)
     * You can also create a mode that uses a multimodal model like Llava.
