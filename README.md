@@ -10,6 +10,9 @@
 
 ## Problem
 Our lab works with Large Language Models (LLMs) and other transformer based models in a social robotics research (both applied and fundamental). We are looking for people who are either familair with these topics or can quickly familiarize themselves. You are to create software to communicate with an LLM to perform different tasks:
+* Back and forth communication. Which means, you provide a user query like "hey what's up!", and the LLM replies with an output: "not much just here to assist you".
+** All
+* Software must go in a mode
 
 [ollama](https://ollama.com/) 
 [ollama repo](https://github.com/ollama/ollama)
