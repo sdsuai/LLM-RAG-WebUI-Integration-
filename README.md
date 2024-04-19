@@ -34,8 +34,8 @@ Those who are able to go some extra mile will be picked first for interview. Hav
   * A tool to stream audio. You can use `pyaudio` or some other library.
   * A tool to detect human speech in audio, so a Voice Activity Detector (`webrtcvad`, `sileroVAD` etc.).
   * A tool to derive text from speech, so maybe a  transcriber model (i.e whisper, faster-whisper etc.). Even with a "bare-minimum" PC, some of these transcriber models can run on only CPU.
-
 * Your machine talks back
     * You will need some text-to-speech library for the program to talk back as a bonus. The voice of the doesnt have to be great. 
-
-* If you have a decenht enough PC. You can also create a mode is good that uses a multimodal model like Llava.
+* If you have a decent enough PC:
+    * Use bigger LLMs like mistral (fine-tuned instruct version)
+    * You can also create a mode is good that uses a multimodal model like Llava.
