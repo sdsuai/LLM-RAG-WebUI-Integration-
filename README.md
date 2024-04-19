@@ -38,4 +38,4 @@ Those who are able to go some extra mile will be picked first for interview. Hav
     * You will need some text-to-speech library for the program to talk back as a bonus. The voice of the doesnt have to be great. 
 * If you have a decent enough PC:
     * Use bigger LLMs like mistral (fine-tuned instruct version)
-    * You can also create a mode is good that uses a multimodal model like Llava.
+    * You can also create a mode that uses a multimodal model like Llava.
