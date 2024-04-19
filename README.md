@@ -34,12 +34,6 @@ Those who are able to go some extra mile will be picked first for interview. Hav
   * A tool to derive text from speech, so maybe a  transcriber model (i.e whisper, faster-whisper etc.). Even with a "bare-minimum" PC, some of these transcriber models can run on only CPU.
 
 * Your machine talks back
-    * text-to-speech library for the program to talk back as a bonus (the library doesnt have to be great, again this is a bonus). 
+    * You will need some text-to-speech library for the program to talk back as a bonus. The voice of the doesnt have to be great. 
 
-mode for Retreival Augmented Generation (RAG) using ollama. There are some example tutorials in the ollama repo. You sould be able to send website links for the program to perform RAG on. For this you can paste the website link on the terminal to provide input.
-
-streamlit and Flask. User bubble and LLM response bubbles must be different color.
-
-LLMs that are small i.e gemma:2b, tiny-llama etc.
-
-If PC is good (extra points) mode for multi-modal input (llava:7b).
+* If you have a decenht enough PC. You can also create a mode is good that uses a multimodal model like Llava.
