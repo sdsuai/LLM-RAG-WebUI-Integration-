@@ -16,7 +16,7 @@ Our lab works with Large Language Models (LLMs) and other transformer based mode
 * **For clarity, the software MUST have the ability to switch in and out of both modes without having to restart the software.**
 * Software displays both user queries and LLM responses in a WebUI. That is to say the webUI does not show up empty or restart, after every mode switch. user query and LLM response must be different color on the GUI. So either color of text ot word-bubble must be different.
 
-## Tools I advice
+## Tools you can use
 The platform I advise to run LLMs from is [ollama](https://ollama.com/), here is their [repo](https://github.com/ollama/ollama). For those with not so good PCs, again the "bare-minimum" can be done with just CPU, you can pull a small LLM like `gemma:2b` or `tinyllama` locally on your ollama and just use those. For the webUI you may use streamlit and Flask as a server to retreive user queries and LLM responses from. I have provided two scripts which use streamlit and Flask to show a simple example of to get user input to show up on the streamlit webUI. Again, this is just advice, any opther way you can get this done, you can just do that. You don't have to use ollama , or streamlit or Flask.
 
 ## "bare-minimum"
