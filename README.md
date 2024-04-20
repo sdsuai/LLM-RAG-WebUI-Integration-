@@ -4,7 +4,7 @@
 * You must code in Python.
 * Some of the libraries and dependencies to fulfill this problem may require python version of atleast 3.8 to 3.10 I think ( I only tried Python 3.8), I don't think python 3.11 works with some dependencies. This is just my opinion, you can try out different python environments using conda or python venv. Ideally please use conda.
 * The "bare-minimum" task can be accomplished with just CPU. If your GPU is good enough just use that though.
-* This task will require you to run yoiur code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. 
+* This task will require you to run yoiur code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. Your OS might be using a different terminal from what I mentioned, or might have multiple, doesn't matter, just use one.
 * After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
 * This is the link to the [google folder](https://drive.google.com/drive/folders/1NPePoOOE4NwcWdrEWzLUcbdNbilXJIIx?usp=drive_link) you must submit your work to. Submit a folder containing all fo your code as well as the video. You must name the folder with your name and email address in the format "name|email_address": nika|nikasemail@yahoo.com.
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
