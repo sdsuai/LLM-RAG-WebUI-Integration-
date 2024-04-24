@@ -6,7 +6,7 @@
 * The "bare-minimum" task can be accomplished with just CPU. If your GPU is good enough just use that though.
 * This task will require you to run yoiur code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. Your OS might be using a different terminal from what I mentioned, or might have multiple, doesn't matter, just use one.
 * After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
-* Create a github repo containing your code and the video. Nmae the repo something like "JSB_interview_problem" or soemthing like that so it's identifiable.
+* Create a github repo containing your code and the video. Nmae the repo something like "JSB_interview_problem" or something like that so it's identifiable.
 * For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. In your ReadME,  make sure tot provide your email address.
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
   
