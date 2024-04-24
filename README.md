@@ -11,7 +11,7 @@
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
   
 
-## Problem
+## Problem task
 Our lab works with Large Language Models (LLMs) and other transformer based models in a social robotics research (both applied and fundamental). We are looking for people who are either familair with these topics or can quickly familiarize themselves. You are to create software to communicate with an LLM to perform different tasks:
 * Back and forth communication. Which means, you provide a user query like "hey what's up!", and the LLM replies with an output: "not much just here to assist you". This will be the primary function of the software.
 * The software must have a mode where it performs Retreival Augmented Generation (RAG). This way to can provide the LLM with articles from links and pdf-links. This way the user can ask the LLM about information from these articles. You may use these: [blog](https://ollama.com/blog/run-llama2-uncensored-locally) and [pdf-link](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001813756/975b3e9b-268e-4798-a9e4-2a9a7c92dc10.pdf)
@@ -26,6 +26,7 @@ For those with not so good PCs, again the "bare-minimum" can be done with just C
 * You can provide the LLM with user query by typing it in terminal
 * You can provide some kind of trigger word or phrase in terminal to switch modes
 * use tiny models like gemma (2 billion parameters) or tiny llama (some 1 billion parameters or so)
+* And of course your software must do everything the problem task requires.
 
 
 ## Extra Credit
