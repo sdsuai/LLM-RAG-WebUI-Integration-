@@ -7,7 +7,7 @@
 * This task will require you to run your code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. Your OS might be using a different terminal from what I mentioned, or might have multiple, doesn't matter, just use one.
 * After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
 * Create a github repo containing your code and the video. Name the repo something like "JSB_interview_problem" or something like that so it's identifiable.
-* For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. In your ReadME,  make sure tot provide your email address.
+* For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. In your ReadME,  make sure to provide your email address.
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
   
 
@@ -17,7 +17,7 @@ Our lab works with Large Language Models (LLMs) and other transformer based mode
 * The software must have a mode where it performs Retreival Augmented Generation (RAG). This way to can provide the LLM with articles from links and pdf-links. This way the user can ask the LLM about information from these articles. You may use these: [blog](https://ollama.com/blog/run-llama2-uncensored-locally) and [pdf-link](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001813756/975b3e9b-268e-4798-a9e4-2a9a7c92dc10.pdf)
 * **For clarity, the software MUST have the ability to switch in and out of both modes without having to restart the software.**
 * Software displays both user queries and LLM responses in a WebUI. That is to say the webUI does not show up empty or restart, after every mode switch. user query and LLM response must be different color on the GUI. So either color of text ot word-bubble must be different.
-* **Note** Inbetween modes make sure the LLM is keeping context of the conversation so it remembers the whole conversation. For the tiniest LLMs it might be a bit rough as you only have context length of a a little over 2000. If you're in this situation, the conversation in your video demo should not be too long.
+* **Note** Inbetween modes make sure the LLM is keeping context of the conversation so it remembers the whole conversation. For the tiniest LLMs it might be a bit rough as you only have context length of a little over 2000. If you're in this situation, the conversation in your video demo should not be too long.
 
 ## Tools you can use
 The platform I advise to run LLMs from is [ollama](https://ollama.com/), here is their [repo](https://github.com/ollama/ollama). The ollama repo also provides some example scripts that might provide some inspiration on how to go about solving some parts of the problem.
