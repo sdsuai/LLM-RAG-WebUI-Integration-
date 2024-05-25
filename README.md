@@ -7,7 +7,7 @@
 * This task will require you to run your code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. Your OS might be using a different terminal from what I mentioned, or might have multiple, doesn't matter, just use one.
 * After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
 * Create a github repo containing your code and the video. Name the repo something like "JSB_interview_problem" or something like that so it's identifiable.
-* ** IMPORTANT (READ THE ENTIRE BULLET POINT) For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. However, so others don't copy your work, make a private clone of the forked repo and send an invite to me (uamadasun@sdsu.edu) so I can gain access access. Please don't make me have to delete this repo** In your ReadME,  make sure to provide your email address.
+* **IMPORTANT (READ THE ENTIRE BULLET POINT) For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. However, so others don't copy your work, make a private clone of the forked repo and send an invite to me (uamadasun@sdsu.edu) so I can gain access access. Please don't make me have to delete this repo.** In your ReadME,  make sure to provide your email address.
 * You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything, just get it done.
   
 
