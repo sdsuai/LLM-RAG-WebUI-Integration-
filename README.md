@@ -24,7 +24,7 @@ The platform I advise to run LLMs from is [ollama](https://ollama.com/), here is
 For those with not so good PCs, again the "bare-minimum" can be done with just CPU, you can pull a small LLM like `gemma:2b` or `tinyllama` (these are around 2GB in size) locally on your ollama and just use those. For the webUI you may use streamlit and Flask as a server to retreive user queries and LLM responses from. I have provided two scripts which use streamlit and Flask to show a simple example of to get user input to show up on the streamlit webUI. Again, this is just advice, any other way you can get this done, you can just do that. You don't have to use ollama , or streamlit or Flask.
 
 ## "bare-minimum"
-* You can provide the LLM with user query by typing it in terminal
+* You can provide the LLM with user query by typing it in **terminal**. Please make sure you understand what I am asking you to do. Do not make a progam where you input queries in the webUI. You input queries straight in your terminal.
 * You can provide some kind of trigger word or phrase in terminal to switch modes
 * use tiny models like gemma (2 billion parameters) or tiny llama (some 1 billion parameters or so)
 * And of course your software must do everything the problem task requires.
