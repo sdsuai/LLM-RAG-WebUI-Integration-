@@ -1,3 +1,6 @@
+Video: https://drive.google.com/drive/folders/10eXkG5jEzy8sJkyFRMsaLEZAZkLb9qCl?usp=sharing
+Email: hravisha@andrew.cmu.edu
+
 **Code Explanation**
 
 **Flask App**
@@ -98,3 +101,4 @@ Uses Google's speech recognition API to recognize and return the spoken query.
 10. main():
 Entry point of the script. Displays a CLI menu to interact with different functionalities (start conversation, start RAG mode, or exit). Calls respective functions based on user input.
 
+Video:
