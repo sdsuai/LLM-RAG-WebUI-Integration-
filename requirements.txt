@@ -1,0 +1,10 @@
+fitz==0.0.1.dev2
+Flask==1.1.4
+ollama==0.2.1
+PyPDF2==1.26.0
+PyPDF2==3.0.1
+pyttsx3==2.90
+Requests==2.32.3
+SpeechRecognition==3.10.4
+streamlit==1.35.0
+transformers==4.41.2
