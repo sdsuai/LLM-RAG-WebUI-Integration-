@@ -75,7 +75,7 @@ Prints a menu with options to start a conversation, switch to RAG mode, or exit.
 Initiates a conversation with the LLM (Language Learning Model). Handles user input to switch modes, exit the conversation, or enable audio features.
 Calls handle_conversation_input(user_input) to process user queries.
 
-4.start_rag_mode():
+4. start_rag_mode():
 Switches to RAG mode. Downloads a PDF file, extracts text from it, and initializes extracted_text. Handles user input to switch modes, exit RAG mode, or enable audio features. Calls handle_rag_input(user_input, extracted_text) to process RAG mode queries.
 
 5. handle_conversation_input(user_input):
