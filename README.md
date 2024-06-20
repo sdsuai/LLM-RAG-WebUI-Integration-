@@ -1,7 +1,8 @@
-Code Explanation
+**Code Explanation**
 
 **Flask App**
 **Functions**
+
 1. download_pdf(pdf_url):
 Downloads a PDF from a given URL. Raises an exception if the download fails. Returns the PDF content as bytes.
 
@@ -20,6 +21,7 @@ Updates the conversation history with the query and response. Returns the respon
 Uses pyttsx3 to convert text to speech. Speaks the provided text. Prints an error message if text-to-speech conversion fails.
 
 **Routes:**
+
 @app.route("/conversation_query", methods=["POST"]):
 Endpoint: /conversation_query
 Method: POST
@@ -53,11 +55,13 @@ Returns the RAG history as JSON.
 
 **Streamlit App**
 **Functions**
+
 fetch_messages(endpoint)
 Sends a GET request to the Flask server at the specified endpoint. Checks the response status code: If the status code is 200 (OK), it extracts the messages from the JSON response and returns them. If the status code is not 200, it displays an error message using Streamlit's st.error function and returns an empty list. Handles request exceptions and displays an error message if an exception occurs, returning an empty list.
 
 **CLI**
 **Functions**
+
 1. update_mode(mode):
 Sends a POST request to update the mode to a Flask server running locally. Handles exceptions and prints appropriate messages if the request fails.
 
@@ -90,14 +94,4 @@ Uses Google's speech recognition API to recognize and return the spoken query.
 
 10. main():
 Entry point of the script. Displays a CLI menu to interact with different functionalities (start conversation, start RAG mode, or exit). Calls respective functions based on user input.
-
-
-
-
-
-
-
-
-
-
 
