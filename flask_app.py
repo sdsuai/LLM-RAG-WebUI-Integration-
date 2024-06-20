@@ -1,12 +1,13 @@
 import threading
-import ollama
 import requests
 from flask import Flask, jsonify, request
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 import fitz  # PyMuPDF
 import pyttsx3
+import ollama
 
 app = Flask(__name__)
+
 conversation_history = []
 rag_history = []
 rag_history_lock = threading.Lock()
@@ -44,7 +45,6 @@ def extract_text_from_pdf(pdf_content):
 def handle_rag(query, context_text):
     global rag_history
     messages = [{'role': 'system', 'content': system_prompt1}]
-    messages.extend(rag_history)
     messages.append({'role': 'user', 'content': query})
     
     try:
@@ -63,7 +63,6 @@ def handle_rag(query, context_text):
         # Select the best response based on relevance or other criteria
         best_response = responses[0]  # For simplicity, selecting the first response
         
-        print(f"Best response: {best_response}")  # Ensure this gets printed
         app.logger.info(f"Best response: {best_response}")
         
         # Update rag_history with thread-safe access
@@ -71,7 +70,6 @@ def handle_rag(query, context_text):
             rag_history.append({'role': 'user', 'content': query})
             rag_history.append({'role': 'assistant', 'content': best_response})
             app.logger.info(f"Updated rag_history: {rag_history}")
-            print(f"Updated rag_history: {rag_history}")  
         
         return best_response
 
@@ -103,11 +101,15 @@ tts_engine = pyttsx3.init()
 def speak_text(text):
     global tts_engine
     try:
-        # Use the initialized engine to speak the provided text
         tts_engine.say(text)
         tts_engine.runAndWait()
     except Exception as e:
         print(f"Error during text-to-speech: {str(e)}")
+
+
+@app.route('/')
+def index():
+    return jsonify({"message": "Welcome to My Flask App!"})
 
 @app.route("/conversation_query", methods=["POST"])
 def conversation_query():
@@ -147,7 +149,6 @@ def get_messages():
 def get_rag_messages():
     with rag_history_lock:
         app.logger.info(f"Fetching rag messages: {rag_history}")
-        print(f"Fetching rag messages: {rag_history}")  # Added print statement for immediate feedback
         return jsonify({"messages": rag_history})
 
 

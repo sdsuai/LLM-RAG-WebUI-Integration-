@@ -59,7 +59,7 @@ def start_conversation():
             handle_conversation_input(user_input)
 
 def start_rag_mode():
-    global mode, use_audio_query, use_audio_output
+    global mode, rag_history
     mode = "rag"
     print("\nSwitched to RAG mode. Type 'conversation' to switch back to conversation mode or 'menu' to return to main menu.")
 
@@ -91,7 +91,7 @@ def handle_conversation_input(user_input):
     global use_audio_query, use_audio_output
 
     if use_audio_query:
-        handle_audio_query()
+        user_input = handle_audio_query()
         use_audio_query = False  # Reset audio query flag after use
 
     # Continue with normal conversation handling
@@ -111,24 +111,33 @@ def handle_conversation_input(user_input):
     except requests.exceptions.RequestException as e:
         print(f"Error communicating with Flask server: {e}")
 
+
 def handle_rag_input(user_input, extracted_text):
-    global use_audio_query, use_audio_output
+    global rag_history
 
-    if use_audio_query:
-        handle_audio_query()
-        use_audio_query = False  # Reset audio query flag after use
+    # Construct payload
+    data = {"query": user_input}
 
-    # Continue with normal RAG mode handling
     try:
-        response = handle_rag(user_input, extracted_text)
-        print(f"Assistant: {response}")
-        rag_history.append({'role': 'user', 'content': user_input})
-        rag_history.append({'role': 'assistant', 'content': response})
-        if use_audio_output:
-            handle_audio_output(response)
-            use_audio_output = False  # Reset audio output flag after use
-    except Exception as e:
-        print(f"Error processing RAG query: {str(e)}")
+        # Send POST request to querypdf endpoint
+        response = requests.post(f"http://localhost:5000/querypdf", json=data)
+
+        if response.status_code == 200:
+            # Assuming handle_rag function processes the query and returns a response
+            response_data = response.json()
+            response_text = response_data.get('response', 'No response')
+            
+            # Print the response from the server
+            print(f"Assistant: {response_text}")
+
+            # Update history
+            rag_history.append({'role': 'user', 'content': user_input})
+            rag_history.append({'role': 'assistant', 'content': response_text})
+        else:
+            print(f"Failed to fetch response from server. Status code: {response.status_code}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error communicating with Flask server: {e}")
 
 def handle_audio_query():
     global mode

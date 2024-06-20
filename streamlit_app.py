@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+import time
+
 # Function to fetch messages from Flask server
 def fetch_messages(endpoint):
     try:
@@ -17,34 +19,29 @@ def fetch_messages(endpoint):
 # Streamlit app title
 st.title("LLM Interaction")
 
-# Fetch conversation messages from server
+# Function to display messages with specified role and color
+def display_messages(messages, header, user_color, assistant_color):
+    if messages:
+        st.header(header)
+        for message in messages:
+            role = message['role']
+            content = message['content']
+            
+            if role == 'user':
+                st.markdown(f"<span style='color: {user_color};'>{content}</span>", unsafe_allow_html=True)
+            elif role == 'assistant':
+                st.markdown(f"<span style='color: {assistant_color};'>{content}</span>", unsafe_allow_html=True)
+    else:
+        st.markdown(f"No {header} available.")
+
+# Fetch and display conversation messages
 conversation_messages = fetch_messages('get_messages')
+display_messages(conversation_messages, "Conversation Messages:", "blue", "green")
 
-# Display conversation messages
-if conversation_messages:
-    st.header("Conversation Messages:")
-    for message in conversation_messages:
-        role = message['role']
-        content = message['content']
-        if role == 'user':
-            st.markdown(f"User: {content}")
-        elif role == 'assistant':
-            st.markdown(f"Assistant: {content}")
-else:
-    st.markdown("No conversation messages available.")
-
-# Fetch RAG messages from server
+# Fetch and display RAG messages
 rag_messages = fetch_messages('rag_messages')
+display_messages(rag_messages, "RAG Messages:", "yellow", "red")
 
-# Display RAG messages
-if rag_messages:
-    st.header("RAG Messages:")
-    for message in rag_messages:
-        role = message['role']
-        content = message['content']
-        if role == 'user':
-            st.markdown(f"User (RAG): {content}")
-        elif role == 'assistant':
-            st.markdown(f"Assistant (RAG): {content}")
-else:
-    st.markdown("No RAG messages available.")
+# Add a timer to refresh the app every 5 seconds
+time.sleep(5)
+st.experimental_rerun()
