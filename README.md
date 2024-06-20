@@ -1,46 +1,103 @@
-# LLM-RAG-WebUI-integration
+Code Explanation
 
-## Important note
-* You must code in Python.
-* Some of the libraries and dependencies to fulfill this problem may require python version of atleast 3.8 to 3.10 I think ( I only tried Python 3.8), I don't think python 3.11 works with some dependencies. This is just my opinion, you can try out different python environments using conda or python venv. Ideally please use conda.
-* The "bare-minimum" task can be accomplished with just CPU. If your GPU is good enough just use that though.
-* This task will require you to run your code from your machines OS terminal. For windows, its the powershell (there's another shell too I think), for macOS and Linux machines a common terminal is bash. Your OS might be using a different terminal from what I mentioned, or might have multiple, doesn't matter, just use one.
-* After completing this task you will need to screen record to make a video showing that your code works and you explaining how it works. Obviously in the screen recording you MUST run your program from the terminal.
-* Create a github repo containing your code and the video. Name the repo something like "JSB_interview_problem" or something like that so it's identifiable.
-* **IMPORTANT (READ THE ENTIRE BULLET POINT) For submission you must submit a pull request to this repo so that we have access to your username and get find your repo. However, so others don't copy your work, do not do you work in the public forked repo. Make a private clone (or however you make things private) of the forked repo and do your actual work there. Send an invite to me to the private repo (philipamadasun1@gmail.com) so I can gain access. Please don't make me have to remake this repo again.** In your ReadME,  make sure to provide your email address.
-* You may freely use any tool available to you to accomplish this task. The internet, ChatGPT, anything (**EXCEPT stuff like co-pilot**), just get it done.
-  
+**Flask App**
+**Functions**
+1. download_pdf(pdf_url):
+Downloads a PDF from a given URL. Raises an exception if the download fails. Returns the PDF content as bytes.
 
-## Problem task
-Our lab works with Large Language Models (LLMs) and other transformer based models in a social robotics research (both applied and fundamental). We are looking for people who are either familair with these topics or can quickly familiarize themselves. You are to create software to communicate with an LLM to perform different tasks:
-* Back and forth communication. Which means, you provide a user query like "hey what's up!", and the LLM replies with an output: "not much just here to assist you". This will be the primary function of the software. Create a system prompt for the LLM to follow, it  can be anything you want. 
-* The software must have a mode where it performs Retreival Augmented Generation (RAG). This way, one can provide the LLM with articles from links and pdf-links. This way the user can ask the LLM about information from these articles. You may use these: [blog](https://ollama.com/blog/run-llama2-uncensored-locally) and [pdf-link](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001813756/975b3e9b-268e-4798-a9e4-2a9a7c92dc10.pdf)
-* **For clarity, the software MUST have the ability to switch in and out of both modes without having to restart the software.**
-* Software displays both user queries and LLM responses in a WebUI. That is to say the webUI does not show up empty or restart, after every mode switch. user query and LLM response must be different colors on the GUI. So either color of text or word-bubble must be different.
-* **Note** Inbetween modes make sure the LLM is keeping context of the conversation so it remembers the whole conversation. For the tiniest LLMs it might be a bit rough as you only have context length of a little over 2000. If you're in this situation, the conversation in your video demo should not be too long.
+2. extract_text_from_pdf(pdf_content):
+Extracts text from the provided PDF content. Uses PyMuPDF (fitz) to read the PDF. Returns the extracted text as a string. Raises an exception if text extraction fails.
 
-## Tools you can use
-The platform I advise to run LLMs from is [ollama](https://ollama.com/), here is their [repo](https://github.com/ollama/ollama). The ollama repo also provides some example scripts that might provide some inspiration on how to go about solving some parts of the problem.
-For those with not so good PCs, again the "bare-minimum" can be done with just CPU, you can pull a small LLM like `gemma:2b` or `tinyllama` (these are around 2GB in size) locally on your ollama and just use those. For the webUI you may use streamlit and Flask as a server to retreive user queries and LLM responses from. I have provided two scripts which use streamlit and Flask to show a simple example of to get user input to show up on the streamlit webUI. Again, this is just advice, any other way you can get this done, you can just do that. You don't have to use ollama , or streamlit or Flask.
+3. handle_rag(query, context_text):
+Handles a query using Retrieval-Augmented Generation (RAG). Encodes the query and context text using T5 tokenizer. Generates a response using the T5 model. Updates the RAG history with the query and response.
+Returns the generated response. Raises an exception if any error occurs during processing.
 
-## "bare-minimum"
-* You can provide the LLM with user query by typing it in **terminal**.
-   - Please make sure you understand what I am asking you to do. Do not make a progam where you input queries in the webUI.
-   - You input queries and change modes straight in your terminal, not the webUI.
-* You can provide some kind of trigger word or phrase in terminal to switch modes
-* use tiny models like gemma (2 billion parameters) or tiny llama (some 1 billion parameters or so)
-* And of course your software must do everything the problem task requires.
+4. chat_with_ollama(query):
+Handles a conversational query using the Ollama chat API. Constructs a message history with system prompt and previous conversation history. Sends the query to the Ollama chat API and gets the response.
+Updates the conversation history with the query and response. Returns the response text. Returns an error message if any error occurs during communication with Ollama.
+
+5. speak_text(text):
+Uses pyttsx3 to convert text to speech. Speaks the provided text. Prints an error message if text-to-speech conversion fails.
+
+**Routes:**
+@app.route("/conversation_query", methods=["POST"]):
+Endpoint: /conversation_query
+Method: POST
+Handles conversational queries.
+Extracts the query from the POST request JSON payload.
+Uses chat_with_ollama to get the response.
+Returns the response as JSON.
+
+@app.route("/querypdf", methods=["POST"]):
+Endpoint: /querypdf
+Method: POST
+Handles queries related to a PDF document.
+Extracts the query from the POST request JSON payload.
+Downloads and extracts text from a PDF if not already done.
+Uses handle_rag to process the query using the extracted text.
+Returns the response as JSON.
+Returns an error message if any error occurs during processing.
+
+@app.route('/get_messages', methods=['GET']):
+Endpoint: /get_messages
+Method: GET
+Retrieves the conversation history.
+Returns the conversation history as JSON.
+
+@app.route('/rag_messages', methods=['GET']):
+Endpoint: /rag_messages
+Method: GET
+Retrieves the RAG history.
+Returns the RAG history as JSON.
 
 
-## Extra Credit
-Those who are able to go some extra mile will be picked first for interview. Have your software have these extra capabiltiies. These extra capabilities should not be confused with modes. The software should have this capability from any mode.
+**Streamlit App**
+**Functions**
+fetch_messages(endpoint)
+Sends a GET request to the Flask server at the specified endpoint. Checks the response status code: If the status code is 200 (OK), it extracts the messages from the JSON response and returns them. If the status code is not 200, it displays an error message using Streamlit's st.error function and returns an empty list. Handles request exceptions and displays an error message if an exception occurs, returning an empty list.
 
-* Talk to your computer instead of typing in terminal. Here are some tools you may need:
-  * A tool to stream audio. You can use `pyaudio` or some other library.
-  * A tool to detect human speech in audio, so a Voice Activity Detector (`webrtcvad`, `sileroVAD` etc.).
-  * A tool to derive text from speech, so maybe a  transcriber model (i.e whisper, faster-whisper etc.). Even with a "bare-minimum" PC, some of these transcriber models can run on only CPU.
-* Your machine talks back
-    * You will need some text-to-speech library or model for the program to talk back as a bonus. The voice doesn't have to be great. 
-* If you have a decent enough PC:
-    * Use bigger LLMs like mistral (fine-tuned instruct version)
-    * You can also create a mode that uses a multimodal model like Llava.
+**CLI**
+**Functions**
+1. update_mode(mode):
+Sends a POST request to update the mode to a Flask server running locally. Handles exceptions and prints appropriate messages if the request fails.
+
+2. print_menu():
+Prints a menu with options to start a conversation, switch to RAG mode, or exit. Also informs about using audio query and output features.
+
+3. start_conversation():
+Initiates a conversation with the LLM (Language Learning Model). Handles user input to switch modes, exit the conversation, or enable audio features.
+Calls handle_conversation_input(user_input) to process user queries.
+
+4.start_rag_mode():
+Switches to RAG mode. Downloads a PDF file, extracts text from it, and initializes extracted_text. Handles user input to switch modes, exit RAG mode, or enable audio features. Calls handle_rag_input(user_input, extracted_text) to process RAG mode queries.
+
+5. handle_conversation_input(user_input):
+Processes user input in conversation mode. Sends a POST request to Flask server (conversation_query endpoint) with user's query.
+Updates conversation history and handles audio output if enabled.
+
+6. handle_rag_input(user_input, extracted_text):
+Processes user input in RAG mode. Uses handle_rag function from flask_app to handle RAG queries with the extracted text from PDF. Updates RAG history and handles audio output if enabled.
+
+7. handle_audio_query():
+Captures audio input using a microphone. Recognizes the speech using Google's speech recognition API. Sends the recognized query to Flask server based on the current mode. Updates conversation or RAG history and handles audio output if enabled.
+
+8. handle_audio_output(response_text):
+Initializes text-to-speech engine (pyttsx3) to speak the provided response text. Updates conversation or RAG history based on the current mode.
+
+9. speech_to_text():
+Sets up a recognizer to capture audio input. Adjusts for ambient noise and listens to the input.
+Uses Google's speech recognition API to recognize and return the spoken query.
+
+10. main():
+Entry point of the script. Displays a CLI menu to interact with different functionalities (start conversation, start RAG mode, or exit). Calls respective functions based on user input.
+
+
+
+
+
+
+
+
+
+
+
