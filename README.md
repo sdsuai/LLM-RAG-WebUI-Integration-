@@ -1,6 +1,7 @@
 **Code Explanation**
 
 **Flask App**
+
 **Functions**
 
 1. download_pdf(pdf_url):
@@ -54,12 +55,14 @@ Returns the RAG history as JSON.
 
 
 **Streamlit App**
+
 **Functions**
 
 fetch_messages(endpoint)
 Sends a GET request to the Flask server at the specified endpoint. Checks the response status code: If the status code is 200 (OK), it extracts the messages from the JSON response and returns them. If the status code is not 200, it displays an error message using Streamlit's st.error function and returns an empty list. Handles request exceptions and displays an error message if an exception occurs, returning an empty list.
 
 **CLI**
+
 **Functions**
 
 1. update_mode(mode):
